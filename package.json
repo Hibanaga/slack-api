@@ -1,0 +1,12 @@
+{
+  "name": "slack-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Hibanaga/slack-api",
+  "author": "Hibanaga <vladyslav.tykhoniuk.works@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}
