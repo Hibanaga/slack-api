@@ -5,8 +5,18 @@
   "repository": "https://github.com/Hibanaga/slack-api",
   "author": "Hibanaga <vladyslav.tykhoniuk.works@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "scripts": {
+    "dev": "nodemon --exec 'ts-node -r esm' ./index.ts"
+  },
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.18.1",
+    "needle": "^3.1.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  },
   "devDependencies": {
+    "nodemon": "^2.0.16",
     "prettier": "^2.6.2"
   }
 }
