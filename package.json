@@ -9,6 +9,7 @@
     "dev": "nodemon --exec 'ts-node -r esm' ./index.ts"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "esm": "^3.2.25",
     "express": "^4.18.1",
     "needle": "^3.1.0",
@@ -16,6 +17,7 @@
     "typescript": "^4.7.4"
   },
   "devDependencies": {
+    "@types/node": "^18.0.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2"
   }
