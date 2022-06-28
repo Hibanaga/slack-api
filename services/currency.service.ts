@@ -22,6 +22,7 @@ class CurrencyService {
 
   async init() {
     await this._fetchCurrency();
+
     this.interval = setInterval(this._fetchCurrency, delay);
   }
 
@@ -34,7 +35,7 @@ class CurrencyService {
     sourceCurrency: string;
     targetCurrency: string;
   }) {
-    if (this._currency) {
+    if (!!this._currency) {
       //on rubles
       if (targetCurrency === "RUB") {
         return (
@@ -46,19 +47,19 @@ class CurrencyService {
       //on target currency
       if (sourceCurrency === "RUB") {
         return (
-          (sourceAmount / this._currency?.Valute[targetCurrency].Value) *
-          this._currency.Valute[sourceCurrency].Nominal
+          (sourceAmount / this._currency.Valute[targetCurrency].Value) *
+          this._currency.Valute[targetCurrency].Nominal
         ).toFixed(2);
       }
 
       const inRub =
         sourceAmount +
-        this._currency?.Valute[sourceCurrency].Value /
-          this._currency?.Valute[sourceCurrency].Nominal;
+        this._currency.Valute[sourceCurrency].Value /
+          this._currency.Valute[sourceCurrency].Nominal;
 
       return (
-        (inRub / this._currency?.Valute[targetCurrency].Value) *
-        this._currency?.Valute[targetCurrency].Nominal
+        (inRub / this._currency.Valute[targetCurrency].Value) *
+        this._currency.Valute[targetCurrency].Nominal
       );
     }
   }
@@ -68,9 +69,7 @@ class CurrencyService {
       const response = await axios.get(
         "https://www.cbr-xml-daily.ru/daily_json.js"
       );
-      const data = await response.data;
-      this._currency = data;
-      console.log("data: ", data);
+      this._currency = await response.data;
     } catch (e) {
       console.error(e);
     }
